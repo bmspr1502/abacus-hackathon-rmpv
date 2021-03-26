@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Add New Student</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 <body>
 
 <div class="jumbotron text-center">
-    <h1>Admin</h1>
+    <h1>Admin - Add New Student</h1>
 
     <a class="btn btn-info" href="index.php">Go Back</a>
 
