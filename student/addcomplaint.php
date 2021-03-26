@@ -1,9 +1,9 @@
 <?php
-if(isset($_POST['rollno'])){
+if(isset($_POST['roomno'])){
     include 'db.php';
-    $rollno = $_POST['rollno'];
+    $room = $_POST['roomno'];
     $complaint = $con->real_escape_string($_POST['complaint']);
-    $query = "INSERT INTO complaints (complaint, rollno) VALUES ('".$complaint."', $rollno)";
+    $query = "INSERT INTO complaints (complaint, roomno, hostelname) VALUES ('".$complaint."', $room, 'marutham')";
     if($con->query($query)){
         echo "ADDED";
     }else{

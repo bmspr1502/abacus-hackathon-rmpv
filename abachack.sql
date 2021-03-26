@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2021 at 11:31 AM
+-- Generation Time: Mar 26, 2021 at 12:34 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.14
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `abachack`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `anid` int(11) NOT NULL,
+  `announce` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`anid`, `announce`, `time`) VALUES
+(1, 'Hello there', '2021-03-26 10:49:15'),
+(2, 'Just checking', '2021-03-26 11:09:31'),
+(3, 'Get somewhere', '2021-03-26 11:10:28');
 
 -- --------------------------------------------------------
 
@@ -44,7 +65,8 @@ CREATE TABLE `complaints` (
 INSERT INTO `complaints` (`compid`, `complaint`, `roomno`, `hostelname`, `status`, `response`) VALUES
 (1, 'asdf', 1, 'marutham', 1, 'aas'),
 (2, 'asdfas', 1, 'marutham', 0, ''),
-(3, 'This stuff is not working, blah blah', 1, 'marutham', 0, '');
+(3, 'This stuff is not working, blah blah', 1, 'marutham', 0, ''),
+(5, 'Hello World', 2, 'marutham', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -67,11 +89,17 @@ CREATE TABLE `marutham` (
 
 INSERT INTO `marutham` (`name`, `rollno`, `roomno`, `status`, `fan`, `light`) VALUES
 ('Pranava Raman', 3555, 1, 0, 0, 0),
-('Vijay', 3585, 2, 1, 1, 0);
+('Vijay', 3585, 2, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD PRIMARY KEY (`anid`);
 
 --
 -- Indexes for table `complaints`
@@ -91,10 +119,16 @@ ALTER TABLE `marutham`
 --
 
 --
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `anid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `compid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `compid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

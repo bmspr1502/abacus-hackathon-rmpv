@@ -18,6 +18,19 @@
 </div>
 
 <div class="container">
+    <div id="showann"></div>
+    <div id="announcement">
+        <form action="addAnnouncement.php" method="post">
+            <div class="form-group">
+                <label for="announ">Enter announcement: </label>
+                <textarea class="form-control" id="announ" name="announce" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-warning" value="Add" name="submit">
+            </div>
+        </form>
+    </div>
     <div id="status"></div>
     <div id="result"></div>
 </div>
@@ -25,6 +38,7 @@
 <script>
     $(document).ready(function(){
         showDet();
+        showAnn();
     });
 
     function status(roll, set){
@@ -43,6 +57,12 @@
     function showDet(){
         $.post('showComplaints.php', function (data){
             $('#result').html(data);
+        })
+    }
+
+    function showAnn(){
+        $.post('loadAnnouncements.php', function (data){
+            $('#showann').html(data);
         })
     }
 </script>

@@ -20,7 +20,7 @@ if(isset($_POST['rollno'])){
         </head>
         <body>
 
-        <div class="jumbotron text-center">g
+        <div class="jumbotron text-center">
             <h1>STUDENT SITE FOR ROOM NO: <?php echo $row['roomno']?></h1>
             <p>Name: <?php echo $row['name']?></p>
             <p>Roll No: <?php echo $row['rollno']?></p>
@@ -63,6 +63,7 @@ if(isset($_POST['rollno'])){
                 <button type="button" class="btn btn-success" onclick="addcomplaint()">Add Complaint</button>
             </form>
 
+            <div id="showann"></div>
 
         </div>
 
@@ -129,7 +130,7 @@ if(isset($_POST['rollno'])){
                 }
                 $.post('addcomplaint.php', {
                     complaint: complaint.val(),
-                    rollno: roll
+                    roomno: room
                 }, function (data){
                     $('#result').html(data);
                     loadcomplaint();
@@ -138,12 +139,19 @@ if(isset($_POST['rollno'])){
 
             $(document).ready(function () {
                 loadcomplaint();
+                showAnn();
             })
             function loadcomplaint(){
                 $.post('loadcomplaint.php', {
                     roomno: room
                 }, function (data) {
                     $('#cmps').html(data);
+                })
+            }
+
+            function showAnn(){
+                $.post('../admin/loadAnnouncements.php', function (data){
+                    $('#showann').html(data);
                 })
             }
         </script>
